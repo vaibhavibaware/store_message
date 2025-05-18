@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Message Sender</title>
+    <style>
+       body{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        background-color: azure;
+        flex-direction: column;
+       }
+       .container{
+        align-items: center;
+        background-color: aliceblue;
+        width: 70%;
+        border-radius: 10px;
+        padding: 10px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        input{
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            margin-right: 10px; 
+        }
+        button{
+            background-color: #007BFF;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover{
+            background: #599ee7;
+        }
+        ul{
+            list-style: none;
+            padding: 0;
+        }
+        li{
+            background-color: #f1f1f1;
+            width: 70%;
+            border-radius: 10px;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+   <div class="container">
+        <h1>Your message comes here!!</h1>
+        <input id="messageInput" placeholder="Type your message">
+        <button id="submitButton">Submit</button>
+        <h2>Last delivered Message</h2>
+        <ul id="deliveredMessage"></ul>
+   </div>
+
+   <script>
+       const messageInput=document.getElementById("messageInput");
+       const submitButton=document.getElementById("submitButton");
+       const deliveredMessage=document.getElementById("deliveredMessage");
+
+       submitButton.addEventListener('click',()=>{
+        const messageText = messageInput.value.trim();
+        if(messageText){
+            deliveredMessage.innerHTML=`<li>${messageText}<\li>`;
+            messageInput.value="";
+        }else{
+            alert('Type the message');
+        }
+       });
+   </script>
+</body>
+</html>
